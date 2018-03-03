@@ -1,0 +1,29 @@
+{
+  "name": "mozillaclub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsrajdas/mozillaclub.git"
+  },
+  "author": "Raj Das",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itsrajdas/mozillaclub/issues"
+  },
+  "homepage": "https://github.com/itsrajdas/mozillaclub#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express": "^4.15.3",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.3",
+    "mongoose": "^4.10.5"
+  }
+}

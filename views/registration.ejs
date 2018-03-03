@@ -1,0 +1,34 @@
+<% include layout.ejs %>
+
+      <form class="form" action="/registration" method="post">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" class="form-control" name="name" id="name" value="">
+        </div>
+        <div class="form-group">
+          <label for="name">Gender:</label>
+          <input type="radio" class="form-control" name="gender" value="female"> Female<br>
+          <input type="radio" class="form-control" name="gender" value="male"> Male<br>
+        </div>
+        <div class="form-group">
+          <label for="name">Email:</label>
+          <input type="text" class="form-control" name="email" id="email" value="">
+        </div>
+        <div class="form-group">
+          <label for="name">Phone Number:</label>
+          <input type="text" class="form-control" name="phone" id="phone" value="">
+        </div>
+        <div class="form-group">
+          <label for="name">University/School:</label>
+          <input type="text" class="form-control" name="institution" id="institution" value="">
+        </div>
+        <div class="form-group">
+          <label for="name">Where did you hear about us:</label>
+          <div class="checkbox">
+            <input type="radio" class="form-control" name="refer" value="social"> Social Network<br>
+            <input type="radio" class="form-control" name="refer" value="friend"> Friend<br>
+            <input type="radio" class="form-control" name="refer" value="other"> Other <br>
+          </div>
+        </div>
+        <button type="submit" name="submit" class="btn btn-success">Register</button>
+      </form>
