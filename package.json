@@ -4,7 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node ./bin/www"
+=======
+    "start": "node app.js"
+>>>>>>> ac57006e9f822a066802c8b12ab191cdf8746e3b
   },
   "repository": {
     "type": "git",
@@ -18,11 +22,20 @@
   "homepage": "https://github.com/itsrajdas/mozillaclub#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
+<<<<<<< HEAD
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.7",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
     "js-alert": "^1.0.4",
+=======
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express": "^4.15.3",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.3",
+>>>>>>> ac57006e9f822a066802c8b12ab191cdf8746e3b
     "mongoose": "^4.10.5"
   }
 }
