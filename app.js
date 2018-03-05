@@ -4,14 +4,27 @@ var bodyParser=require('body-parser');
 var schema=require('./schema.js');
 var session=require('express-session');
 var cookieParser=require('cookie-parser');
+var flash = require('connect-flash');
+var JSAlert = require("js-alert");
+
 var app=express();
+
 app.use(cookieParser());
-app.use(session({secret: 'mycode'}))
+app.use(session({
+  secret: '---',
+  saveUninitialized: true,
+  resave: true}))
+app.use(flash());
+app.use(function(req, res, next){
+    res.locals.success = req.flash('success');
+    res.locals.errors = req.flash('error');
+    next();
+});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser());
 app.set('view engine','ejs');
 app.set('views','./views');
-app.use('/static',express.static('public'));
+app.use(express.static('public'));
 // MongoDb connection
 // var url='mongodb://mozadmin:admin123@ds255588.mlab.com:55588/registration';
 var url= 'mongodb://localhost:27017/mydb';
@@ -43,9 +56,8 @@ app.post('/admin',function(req,res){
   var password = req.body.password;
   console.log(username,password);
   if(username==''&&password==''){
-    console.log("successfully logedin");
+    req.session.key="login";
     schema.find({}, function(err, data){
-      console.log(data[0]);
       res.render('user',{data: data})
     })
   }
@@ -54,8 +66,21 @@ app.post('/admin',function(req,res){
   }
 });
 // POST requests
+function makeid() {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+  for (var i = 0; i < 5; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
+}
+app.get('/registration', function(req,res){
+        res.send(req.flash('success'));
+})
 app.post('/registration',function(req,res){
   var addUser = schema({
+    _id : makeid(),
     name: req.body.name,
     gender: req.body.gender,
     email: req.body.email,
@@ -67,12 +92,23 @@ app.post('/registration',function(req,res){
     if(err)
       console.log(err);
     else{
-      console.log("success");
+      res.json({success: true});
       console.log(data);
-      return data;
     }
+
   })
 });
+app.get('/logout',function(req,res){
+  req.session.destroy(function(err){
+        if(err){
+            console.log(err);
+        }
+        else
+        {
+            res.redirect('/admin');
+        }
+    });
+})
 // server
 app.listen(9000,function(err){
   if(err) throw err;

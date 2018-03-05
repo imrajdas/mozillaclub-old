@@ -1,6 +1,7 @@
 var mongoose=require('mongoose');
 var schema = mongoose.Schema;
 var myschema=new schema({
+  _id:{unique: true,type: String},
   name:{unique: false,type: String},
   gender:{unique: false,type: String},
   email:{unique: false,type: String},

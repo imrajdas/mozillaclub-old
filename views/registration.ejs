@@ -1,34 +1,94 @@
 <% include layout.ejs %>
+<div class="container">
+<h2><center>Registration Form</center></h2>
+<form class="form-horizontal" role="form" action="/registration" method="POST">
 
-      <form class="form" action="/registration" method="post">
-        <div class="form-group">
-          <label for="name">Full Name:</label>
-          <input type="text" class="form-control" name="name" id="name" value="">
+    <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">Full Name</label>
+        <div class="col-sm-9">
+            <input type="text" id="name" name="name" placeholder="Full Name" class="form-control" autofocus>
+            <span class="help-block">Full Name, eg.: Smith Pandey</span>
         </div>
-        <div class="form-group">
-          <label for="name">Gender:</label>
-          <input type="radio" class="form-control" name="gender" value="female"> Female<br>
-          <input type="radio" class="form-control" name="gender" value="male"> Male<br>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3">Gender</label>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" id="gender" name="gender" value="Female">Female
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" id="gender" name="gender" value="friend">Male
+                    </label>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="name">Email:</label>
-          <input type="text" class="form-control" name="email" id="email" value="">
+    </div>
+    <div class="form-group">
+        <label for="email" class="col-sm-3 control-label">Email</label>
+        <div class="col-sm-9">
+            <input type="email" id="email" name="email" placeholder="Email" class="form-control">
         </div>
-        <div class="form-group">
-          <label for="name">Phone Number:</label>
-          <input type="text" class="form-control" name="phone" id="phone" value="">
+    </div>
+    <div class="form-group">
+        <label for="phone" class="col-sm-3 control-label">Phone Number</label>
+        <div class="col-sm-9">
+            <input type="text" id="phone_number" name="phone_number" placeholder="Phone Number " class="form-control">
         </div>
-        <div class="form-group">
-          <label for="name">University/School:</label>
-          <input type="text" class="form-control" name="institution" id="institution" value="">
+    </div>
+    <div class="form-group">
+        <label for="institution" class="col-sm-3 control-label">University/School</label>
+        <div class="col-sm-9">
+            <input type="text" id="institution" name="institution" placeholder="University/School" class="form-control">
         </div>
-        <div class="form-group">
-          <label for="name">Where did you hear about us:</label>
-          <div class="checkbox">
-            <input type="radio" class="form-control" name="refer" value="social"> Social Network<br>
-            <input type="radio" class="form-control" name="refer" value="friend"> Friend<br>
-            <input type="radio" class="form-control" name="refer" value="other"> Other <br>
-          </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3">Where did you hear about us</label>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" id="refer" name="refer" value="Social">Social Network
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" id="refer" name="refer" value="friend">Friend
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" id="refer" name="refer" value="other">Other
+                    </label>
+                </div>
+            </div>
         </div>
-        <button type="submit" name="submit" class="btn btn-success">Register</button>
-      </form>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-9 col-sm-offset-3">
+            <button type="submit" name="submit" id="submit" class="btn btn-primary btn-block">Register</button>
+        </div>
+    </div>
+</form> <!-- /form -->
+</div> <!-- ./container -->
+<script type="text/javascript">
+  $('#submit').click(function(e){
+    e.preventDefault();
+    $.ajax({
+        url: '/registration',
+        type: "POST",
+        data: 'your form data',
+        success: function(response){
+        swal({
+          title: "Registration Confirmed!",
+          text: "You will shortly recieve a mail. Please Refer your friends",
+          icon: "success",
+          button: "Ok!",
+        });
+        }
+    });
+  })
+</script>
