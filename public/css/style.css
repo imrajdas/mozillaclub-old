@@ -19,10 +19,16 @@
 color: #ff9900;
  }
 /* Add a gray background color and some padding to the footer */
+<<<<<<< HEAD
 .footer {
 	background-color:  #ffefd5;
 	padding-bottom: 150px;
 
+=======
+footer {
+	background-color:  #4dc3ff;
+	padding: 25px;
+>>>>>>> 37598c4f45126a8e810fa230758e979db7f9e47d
 }
 
 .e-fonts{
