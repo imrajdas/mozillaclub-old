@@ -1,0 +1,121 @@
+<% include layout.ejs %>
+<div class="container">
+<h2><center>Registration Form</center></h2>
+<form class="form-horizontal" role="form" method="post">
+
+    <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">Full Name *</label>
+        <div class="col-sm-9">
+            <input type="text" id="name" name="name" placeholder="Full Name" class="form-control" autofocus>
+            <span class="help-block">Full Name, eg.: Smith Pandey</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3">Gender *</label>
+        <div class="col-sm-6">
+            <div class="row" id="gen">
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" id="gender" name="gender" value="Female">Female
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" id="gender" name="gender" value="male">Male
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email" class="col-sm-3 control-label">Email *</label>
+        <div class="col-sm-9">
+            <input type="email" id="email" name="email" placeholder="Email" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="phone" class="col-sm-3 control-label">Phone Number *</label>
+        <div class="col-sm-9">
+            <input type="text" id="phone" name="phone" placeholder="Phone Number " class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="institution" class="col-sm-3 control-label">University/School *</label>
+        <div class="col-sm-9">
+            <input type="text" id="institution" name="institution" placeholder="University/School" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-3">Where did you hear about us</label>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" id="refer" name="refer" value="Social">Social Network
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" id="refer" name="refer" value="friend">Friend
+                    </label>
+                </div>
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" id="refer" name="refer" value="other">Other
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-9 col-sm-offset-3">
+            <button type="submit" name="submit" id="submit" class="btn btn-primary btn-block">Register</button>
+        </div>
+    </div>
+</form> <!-- /form -->
+</div> <!-- ./container -->
+<script type="text/javascript">
+  $('#submit').click(function(e){
+   var gender = $("input[name='gender']:checked").val();
+   var refer = $("input[name='refer']:checked").val();
+   var name = document.getElementById('name').value
+   var email = document.getElementById('email').value
+   var phone = document.getElementById('phone').value
+   var institution = document.getElementById('institution').value
+   var data = {
+     'name': name,
+     'gender': gender,
+     'email': email,
+     'phone': phone,
+     'institution': institution,
+     'refer' : refer
+   }
+   console.log(data);
+   e.preventDefault();
+   $.ajax({
+       url: '/registration',
+       type: "POST",
+       data: data,
+       success: function(response){
+       console.log(response.status);
+       if(response.status==500){
+         swal({
+           title: "Please fill all mandatory details:(",
+           text: "* are the mandatory details",
+           icon: "error",
+           button: "Ok!",
+         });
+       }
+       else if(response.status==200){
+         swal({
+           title: "Registration Confirmed!",
+           text: "You will shortly recieve a mail. Please Refer your friends",
+           icon: "success",
+           button: "Ok!",
+         });
+       }
+       }
+   });
+});
+
+</script>

@@ -1,0 +1,36 @@
+<% include userlayout.ejs %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello</title>
+  </head>
+  <body>
+
+    <table class="table table-dark table-hover">
+      <tr>
+        <th>Sno</th>
+        <th>HackId</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>institution</th>
+        <th>Refer</th>
+      </tr>
+      <% for(var i=0; i<data.length; i++) { %>
+      <tr>
+          <td><%= i+1 %></td>
+          <td><%= data[i]._id %></td>
+          <td><%= data[i].name %></td>
+          <td><%= data[i].gender %></td>
+          <td><%= data[i].email %></td>
+          <td><%= data[i].phone %></td>
+          <td><%= data[i].institution %></td>
+          <td><%= data[i].refer %></td>
+      </tr>
+      <% } %>
+
+    </table>
+  </body>
+</html>
