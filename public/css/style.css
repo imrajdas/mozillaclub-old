@@ -19,8 +19,9 @@
 color: #ff9900;
  }
 /* Add a gray background color and some padding to the footer */
+
 .footer {
-	background-color:  #ffefd5;
+	background-color:  #b3b3b3;
 	padding-bottom: 150px;
 }
 
