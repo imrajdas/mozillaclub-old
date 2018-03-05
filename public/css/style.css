@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+@import url('https://fonts.googleapis.com/css?family=Play');
+
+.body{
+	background-color: #e6e6e6;
+	font-family: 'Play', sans-serif;
+}
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+	line-height: 800px
+
+	}
+.jumbotron{
+	background-color: #ffffff;
+}
+.e-jumbo{
+	margin-top: 20px;
+}
+.nav.navbar-nav.navbar-right li a {
+color: #ff9900;
+ }
+/* Add a gray background color and some padding to the footer */
+
+.footer {
+	background-color:  #b3b3b3;
+	padding-bottom: 150px;
+}
+
+.e-fonts{
+	font-family: 'Exo 2', sans-serif;
+	font-size: 18px;
+}
+.container{
+	margin-top: 20px;
+}
+body a{
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}
+h1,h2,h3,h4,h5,h6,p,label{
+	margin:0;
+}

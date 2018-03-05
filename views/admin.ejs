@@ -1,0 +1,50 @@
+<% include layout.ejs %>
+<div class="container">
+<form class="form-horizontal" role="form" method="POST">
+    <h2><center>Admin Login</center></h2>
+    <div class="form-group">
+        <label for="username" class="col-sm-3 control-label">Username</label>
+        <div class="col-sm-9">
+            <input type="text" id="username" name="username" placeholder="Username" class="form-control" autofocus>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-9">
+            <input type="password" id="password" name="password" placeholder="Password" class="form-control" autofocus>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-9 col-sm-offset-3">
+            <button type="submit" name="submit" class="btn btn-success btn-block">Login</button>
+        </div>
+    </div>
+</form> <!-- /form -->
+</div> <!-- ./container -->
+<script type="text/javascript">
+    $('#submit').click(function(e){
+      var username= document.getElementById('username').value
+      var password= document.getElementById('password').value
+      var data = {
+        "username" : username,
+        "password" : password
+      }
+      e.preventDefault();
+      $.ajax({
+          url: '/admin',
+          type: "POST",
+          data: data,
+          success: function(response){
+            alert(response.status)
+            console.log(response.status);
+            if(response.status==500){
+              swal({
+                title: "Credentials are wrong(:",
+                icon: "error",
+                button: "Ok!",
+              });
+            }
+          }
+      });
+    })
+</script>
