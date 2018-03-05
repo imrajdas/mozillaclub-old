@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var express=require('express');
 var mongoose=require('mongoose');
 var bodyParser=require('body-parser');
@@ -157,4 +156,3 @@ io.on('connection',function(socket){
     io.sockets.emit('get users', users);
   }
 })
->>>>>>> 064bf4aad712426e9d4c5fd7fdebd6c5dff8aacb
