@@ -14,7 +14,9 @@
 .jumbotron{
 	background-color: #ffffff;
 }
-
+.e-jumbo{
+	margin-top: 20px;
+}
 .nav.navbar-nav.navbar-right li a {
 color: #ff9900;
  }
