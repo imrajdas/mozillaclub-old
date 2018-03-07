@@ -18,8 +18,8 @@ app.set('view engine','ejs');
 app.set('views','./views');
 app.use(express.static('public'));
 // MongoDb connection
-// var url='mongodb://mozadmin:admin123@ds255588.mlab.com:55588/registration';
-var url= 'mongodb://localhost:27017/mydb';
+var url='mongodb://mozadmin:admin123@ds255588.mlab.com:55588/registration';
+// var url= 'mongodb://localhost:27017/mydb';
 mongoose.connect(url, {useMongoClient: true}, function(err){
     if(err) {
         console.log('Some problem with the connection ' +err);
@@ -35,13 +35,13 @@ db.on('open',function(){
 
 // GET requests
 app.get('/', function(req,res){
-  res.render('home');
+  res.render('home',{ex:'Admin',url:'/admin'});
 })
 app.get('/registration', function(req,res){
-  res.render('registration');
+  res.render('registration',{ex:'Admin',url:'/admin'});
 })
 app.get('/admin',function(req,res){
-  res.render('admin');
+  res.render('admin',{ex:'Events',url:'/home#events'});
 });
 app.post('/admin',function(req,res){
   console.log(req.body);
@@ -71,15 +71,18 @@ function makeid() {
 
 app.post('/registration',function(req,res){
   console.log(req.body);
-  if(req.body.name&&req.body.gender&&req.body.email&&req.body.phone&&req.body.institution){
+  if(req.body.name&&req.body.email&&req.body.roll&&req.body.year&&req.body.branch ){
     var addUser = schema({
       _id : makeid(),
       name: req.body.name,
-      gender: req.body.gender,
       email: req.body.email,
-      phone: req.body.phone,
-      institution: req.body.institution,
-      refer: req.body.refer,
+      roll: req.body.roll,
+      year: req.body.year,
+      branch: req.body.branch,
+      roll1: req.body.roll1,
+      roll2: req.body.roll2,
+      roll3: req.body.roll3,
+      roll4: req.body.roll4
     })
     addUser.save(function(err,data){
       if(err)

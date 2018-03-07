@@ -1,56 +1,22 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <!-- Links -->
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<head>
+		<title>hackathon</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MF2X9Z7');</script>
-    <!-- End Google Tag Manager -->
-    <!-- Meta tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="" />
-  </head>
-  <body class="body">
-    <nav class="navbar navbar-inverse">
-    	<!-- Navbar -->
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-         <a class="navbar-brand" href="#home"><button class="btn btn-default"><strong>moz://a</strong></button></a>
-         <a  class="navbar-brand" href="/registration" data-hover="REGISTRATION"><button  class="btn btn-danger">REGISTRATION</button></a>
-        </div>
-        <!-- Toggle -->
-        <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-      		<li><a href="/">HOME</a></li>
-      		<li><a href="/#events" data-hover="EVENTS">EVENTS</a></li>
-      		<li><a href="/#about" data-hover="ABOUT US">ABOUT US</a></li>
-      		<li><a href="/#contact" data-hover="CONTACT">CONTACT</a></li>
-      		<li><a href="/admin" data-hover="ADMIN PANEL">ADMIN PANEL</a></li>
-    	  </ul>
-    	</div>
-      </div>
-    </nav>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MF2X9Z7"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
+  <body>
+    <!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="/">Mozilla <span> club</span></a></div>
+				<a href="/registration">Registration</a>
+				<a href=<%= url%>><%= ex%></a>
+			</header>
   </body>
 </html>
