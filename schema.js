@@ -10,7 +10,10 @@ var myschema=new schema({
   roll1: {unique: false,type: String},
   roll2: {unique: false,type: String},
   roll3: {unique: false,type: String},
-  roll4: {unique: false,type: String}
+  roll4: {unique: false,type: String},
+  fifa: {unique: false,type: String},
+  rainbow: {unique: false,type: String},
+  hackathon: {unique: false,type: String}
 });
 var data=mongoose.model('registration',myschema);
 module.exports=data;

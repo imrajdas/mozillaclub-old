@@ -71,7 +71,7 @@ function makeid() {
 
 app.post('/registration',function(req,res){
   console.log(req.body);
-  if(req.body.name&&req.body.email&&req.body.roll&&req.body.year&&req.body.branch ){
+  if(req.body.name&&req.body.email&&req.body.roll&&req.body.year&&req.body.branch){
     var addUser = schema({
       _id : makeid(),
       name: req.body.name,
@@ -82,14 +82,17 @@ app.post('/registration',function(req,res){
       roll1: req.body.roll1,
       roll2: req.body.roll2,
       roll3: req.body.roll3,
-      roll4: req.body.roll4
+      roll4: req.body.roll4,
+      fifa: req.body.fifa,
+      hackathon: req.body.hackathon,
+      rainbow: req.body.rainbow
     })
     addUser.save(function(err,data){
       if(err)
         console.log(err);
       else{
         console.log(data);
-        res.json({status:200})
+        res.json({status:200});
       }
     })
   }
