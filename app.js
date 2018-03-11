@@ -18,8 +18,8 @@ app.set('view engine','ejs');
 app.set('views','./views');
 app.use(express.static('public'));
 // MongoDb connection
-// var url='mongodb://mozadmin:admin123@ds255588.mlab.com:55588/registration';
-var url= 'mongodb://localhost:27017/mydb';
+var url='mongodb://mozadmin:admin123@ds255588.mlab.com:55588/registration';
+// var url= 'mongodb://localhost:27017/mydb';
 mongoose.connect(url, {useMongoClient: true}, function(err){
     if(err) {
         console.log('Some problem with the connection ' +err);
