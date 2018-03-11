@@ -1,5 +1,5 @@
 # mozillaclub
-**Link** - https://mozilla-bbsr.ml
+**Link** - http://mozilla-bbsr.ml
 ### Installing
 ```
 npm install
