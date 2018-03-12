@@ -35,13 +35,13 @@ db.on('open',function(){
 
 // GET requests
 app.get('/', function(req,res){
-  res.render('home',{ex:'Admin',url:'/admin'});
+  res.render('home');
 })
 app.get('/registration', function(req,res){
-  res.render('registration',{ex:'Admin',url:'/admin'});
+  res.render('registration');
 })
 app.get('/admin',function(req,res){
-  res.render('admin',{ex:'Events',url:'/home#events'});
+  res.render('admin');
 });
 app.post('/admin',function(req,res){
   console.log(req.body);
@@ -54,8 +54,7 @@ app.post('/admin',function(req,res){
     })
   }
   else{
-    res.json({status:500})
-    console.log("Worng credentials");
+    res.json({response:"Wrong credentials"})
   }
 });
 // POST requests
