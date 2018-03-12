@@ -118,6 +118,9 @@
            text: "You will shortly recieve a mail. Please Refer your friends",
            icon: "success",
            button: "Ok!",
+         }).then(function(confirm){
+           if(confirm)
+              window.location.href = "http://mozilla-bbsr.ml/registration";
          });
        }
        }
