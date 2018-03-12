@@ -71,11 +71,12 @@ function makeid() {
 
 app.post('/registration',function(req,res){
   console.log(req.body);
-  if(req.body.name&&req.body.email&&req.body.roll&&req.body.year&&req.body.branch){
+  if(req.body.name&&req.body.email&&req.body.roll&&req.body.year&&req.body.branch&&req.body.phone){
     var addUser = schema({
       _id : makeid(),
       name: req.body.name,
       email: req.body.email,
+      phone: req.body.phone,
       roll: req.body.roll,
       year: req.body.year,
       branch: req.body.branch,

@@ -4,6 +4,7 @@ var myschema=new schema({
   _id:{unique: true,type: String},
   name: {unique: false,type: String},
   email: {unique: false,type: String},
+  phone: {unique: false,type: String},
   roll: {unique: false,type: String},
   year: {unique: false,type: String},
   branch: {unique: false,type: String},
