@@ -108,6 +108,18 @@
          });
 
        }
+       else if(response.status==302){
+         swal({
+           title: "BOSS you are already registered:(",
+           text: "",
+           icon: "error",
+           button: "Ok!",
+         }).then(function(confirm){
+           if(confirm)
+              window.location.href = "http://mozilla-bbsr.ml/registration";
+         });;
+
+       }
        else if(response.status==200){
          swal({
            title: "Registration Confirmed!",

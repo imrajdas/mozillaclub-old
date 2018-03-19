@@ -84,16 +84,28 @@ app.post('/registration',function(req,res){
       roll3: req.body.roll3,
       roll4: req.body.roll4,
     })
-    addUser.save(function(err,data){
-      if(err)
-        console.log(err);
-      else{
-        console.log(data);
-        res.json({status:200});
-      }
-    })
+    console.log("here")
+    schema.find({roll:req.body.roll},function(err,data){ 
+        if(data.length>1){
+          console.log(data)
+          res.json({status:302}) 
+        }
+        else{
+          addUser.save(function(err,data){
+          if(err)
+            console.log(err);
+          else{
+            console.log(data);
+            res.json({status:200});
+          }
+        })
+        }
+     })
+    
   }
   else{
+    console.log("here1")
+    
     res.json({status:500})
   }
 });
