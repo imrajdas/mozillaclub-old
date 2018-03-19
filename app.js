@@ -83,9 +83,6 @@ app.post('/registration',function(req,res){
       roll2: req.body.roll2,
       roll3: req.body.roll3,
       roll4: req.body.roll4,
-      fifa: req.body.fifa,
-      hackathon: req.body.hackathon,
-      rainbow: req.body.rainbow
     })
     addUser.save(function(err,data){
       if(err)
