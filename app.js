@@ -86,7 +86,7 @@ app.post('/registration',function(req,res){
     })
     console.log("here")
     schema.find({roll:req.body.roll},function(err,data){ 
-        if(data.length>1){
+        if(data.length>0){
           console.log(data)
           res.json({status:302}) 
         }
