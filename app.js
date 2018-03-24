@@ -40,6 +40,9 @@ app.get('/', function(req,res){
 app.get('/registration', function(req,res){
   res.render('registration');
 })
+app.get('/faq', function(req,res){
+  res.render('faq');
+})
 app.get('/admin',function(req,res){
   res.render('admin');
 });
